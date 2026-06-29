@@ -1,0 +1,9 @@
+node_modules/
+.env
+.env.*
+local-secrets.json
+.agents/
+.codex/
+dist/
+prd_render/
+pick-and-chill-extension.zip

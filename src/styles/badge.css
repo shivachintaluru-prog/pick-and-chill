@@ -1,0 +1,171 @@
+.ratings-and-chill-badge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 20;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  max-width: calc(100% - 12px);
+  min-height: 22px;
+  padding: 3px 7px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: #ffffff;
+  font-family: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0;
+  cursor: default;
+  overflow: visible;
+  pointer-events: auto;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.ratings-and-chill-badge:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.9);
+  outline-offset: 2px;
+}
+
+.ratings-and-chill-badge__label {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 3px;
+  text-overflow: ellipsis;
+}
+
+.ratings-and-chill-badge__label::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.ratings-and-chill-badge--must {
+  background: rgba(23, 132, 71, 0.96);
+  box-shadow:
+    0 0 0 1px rgba(255, 218, 121, 0.52),
+    0 0 14px rgba(69, 214, 129, 0.5),
+    0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.ratings-and-chill-badge--must .ratings-and-chill-badge__label::before {
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    transparent 28%,
+    rgba(255, 255, 255, 0.82) 43%,
+    rgba(255, 231, 153, 0.52) 50%,
+    transparent 64%,
+    transparent 100%
+  );
+  opacity: 0.65;
+  transform: translateX(-145%);
+  animation: ratings-and-chill-shine 2.8s ease-in-out infinite;
+}
+
+.ratings-and-chill-badge--worth {
+  background: rgba(33, 100, 181, 0.96);
+}
+
+.ratings-and-chill-badge--mixed {
+  background: rgba(177, 113, 24, 0.96);
+}
+
+.ratings-and-chill-badge--skip {
+  background: rgba(150, 44, 44, 0.96);
+}
+
+.ratings-and-chill-badge--loading,
+.ratings-and-chill-badge--debug {
+  background: rgba(66, 66, 66, 0.9);
+  pointer-events: none;
+}
+
+.ratings-and-chill-card {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 21;
+  display: grid;
+  width: 174px;
+  gap: 7px;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 6px;
+  box-sizing: border-box;
+  background: rgba(17, 17, 17, 0.96);
+  color: #ffffff;
+  font-size: 12px;
+  line-height: 1.25;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-3px);
+  transition: opacity 120ms ease, transform 120ms ease;
+  white-space: normal;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+}
+
+.ratings-and-chill-badge:hover .ratings-and-chill-card,
+.ratings-and-chill-badge:focus .ratings-and-chill-card,
+.ratings-and-chill-badge:focus-within .ratings-and-chill-card {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.ratings-and-chill-card__heading {
+  display: block;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.ratings-and-chill-card__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.ratings-and-chill-card__source {
+  color: rgba(255, 255, 255, 0.72);
+  font-weight: 700;
+}
+
+.ratings-and-chill-card__score {
+  font-weight: 800;
+}
+
+.ratings-and-chill-card__note {
+  display: block;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+@keyframes ratings-and-chill-shine {
+  0%,
+  42% {
+    transform: translateX(-145%);
+  }
+
+  70%,
+  100% {
+    transform: translateX(145%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ratings-and-chill-badge--must .ratings-and-chill-badge__label::before {
+    animation: none;
+    opacity: 0;
+  }
+}

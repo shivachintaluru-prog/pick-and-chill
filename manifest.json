@@ -1,0 +1,58 @@
+{
+  "manifest_version": 3,
+  "name": "Pick and Chill",
+  "description": "Spot binge-worthy picks on Netflix, JioHotstar, and Prime Video with compact recommendation badges.",
+  "version": "0.1.0",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://www.netflix.com/*",
+    "https://*.hotstar.com/*",
+    "https://*.jiohotstar.com/*",
+    "https://*.primevideo.com/*",
+    "https://*.amazon.in/gp/video/*",
+    "https://*.amazon.com/gp/video/*",
+    "https://www.omdbapi.com/*"
+  ],
+  "background": {
+    "service_worker": "src/background/service-worker.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.netflix.com/*",
+        "https://*.hotstar.com/*",
+        "https://*.jiohotstar.com/*",
+        "https://*.primevideo.com/*",
+        "https://*.amazon.in/gp/video/*",
+        "https://*.amazon.com/gp/video/*"
+      ],
+      "js": [
+        "src/content/adapters/netflix.js",
+        "src/content/adapters/hotstar.js",
+        "src/content/adapters/prime-video.js",
+        "src/content/diagnostics.js",
+        "src/content/runtime.js",
+        "src/content/netflix-content.js"
+      ],
+      "css": ["src/styles/badge.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_page": "src/options/options.html",
+  "icons": {
+    "16": "assets/icons/icon-16.png",
+    "32": "assets/icons/icon-32.png",
+    "48": "assets/icons/icon-48.png",
+    "128": "assets/icons/icon-128.png"
+  },
+  "action": {
+    "default_title": "Pick and Chill",
+    "default_icon": {
+      "16": "assets/icons/icon-16.png",
+      "32": "assets/icons/icon-32.png",
+      "48": "assets/icons/icon-48.png",
+      "128": "assets/icons/icon-128.png"
+    }
+  }
+}
