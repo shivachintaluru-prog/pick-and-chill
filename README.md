@@ -10,7 +10,7 @@ Ratings come from OMDb and combine IMDb with Rotten Tomatoes when both are avail
 
 ## Install
 
-1. Download and extract `pick-and-chill-extension.zip`.
+1. Download and extract `pick-and-chill-extension.zip`. https://github.com/shivachintaluru-prog/pick-and-chill/releases/download/v0.1.0/pick-and-chill-extension.zip
 2. Open `chrome://extensions` in Google Chrome.
 3. Turn on **Developer mode**.
 4. Select **Load unpacked**.
